@@ -1,5 +1,3 @@
-install:
-  - composer install
 language: php
 php:
   - 5.4
@@ -7,3 +5,5 @@ php:
   - 5.6
   - hhvm
   - nightly
+install:
+  - composer install
