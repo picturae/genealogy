@@ -1,0 +1,58 @@
+{
+    "deed": [
+        {
+            "asset": [
+                {
+                    "available_mimetypes": [
+                        "image/tjp"
+                    ],
+                    "dc_title": "2068_0005_0032_0001",
+                    "default_thumb": false,
+                    "download": "http://images.memorix.nl/szu/download/default/24284e1f-074b-0ae4-fb65-9e4b7b451993.jpg",
+                    "filename": "30057cf6-d1c8-1404-e104-094208ddd3a4.tjp",
+                    "fullname": "24284e1f-074b-0ae4-fb65-9e4b7b451993.jpg",
+                    "mimetype": "image/tjp",
+                    "thumb.large": "https://images.memorix.nl/szu/thumb/640x480/24284e1f-074b-0ae4-fb65-9e4b7b451993.jpg",
+                    "thumb.medium": "https://images.memorix.nl/szu/thumb/250x250/24284e1f-074b-0ae4-fb65-9e4b7b451993.jpg",
+                    "thumb.small": "https://images.memorix.nl/szu/thumb/100x100/24284e1f-074b-0ae4-fb65-9e4b7b451993.jpg",
+                    "topview": "http://images.memorix.nl/szu/topviewjson/memorix/24284e1f-074b-0ae4-fb65-9e4b7b451993",
+                    "uuid": "24284e1f-074b-0ae4-fb65-9e4b7b451993"
+                },
+                {
+                    "available_mimetypes": [
+                        "image/tjp"
+                    ],
+                    "dc_title": "2068_0005_0032_0002",
+                    "default_thumb": false,
+                    "download": "http://images.memorix.nl/szu/download/default/6825489c-6599-389a-5371-353352e1b93b.jpg",
+                    "filename": "f03b06d5-c55d-b450-a819-ddd5fab826bd.tjp",
+                    "fullname": "6825489c-6599-389a-5371-353352e1b93b.jpg",
+                    "mimetype": "image/tjp",
+                    "thumb.large": "https://images.memorix.nl/szu/thumb/640x480/6825489c-6599-389a-5371-353352e1b93b.jpg",
+                    "thumb.medium": "https://images.memorix.nl/szu/thumb/250x250/6825489c-6599-389a-5371-353352e1b93b.jpg",
+                    "thumb.small": "https://images.memorix.nl/szu/thumb/100x100/6825489c-6599-389a-5371-353352e1b93b.jpg",
+                    "topview": "http://images.memorix.nl/szu/topviewjson/memorix/6825489c-6599-389a-5371-353352e1b93b",
+                    "uuid": "6825489c-6599-389a-5371-353352e1b93b"
+                }
+            ],
+            "entity_type": "na_a",
+            "entity_uuid": "c538a4d6-cb02-11df-a84c-426945576265",
+            "id": "01792869-7556-f1ad-ef04-aacb0be11b49",
+            "metadata": {
+                "datum": 18150322,
+                "has_assets": "deed",
+                "modified_time": "2014-11-17 16:22:05.913323",
+                "nummer": "32",
+                "subtype": "inzet",
+                "type_title": "notarieel register akte"
+            },
+            "register_id": "f8c80fb3-2e9f-c06d-1454-995fab0fe8b0",
+            "tenant": "szu",
+            "timestamp": "2015-07-30T04:22:47.437Z",
+            "title": ""
+        }
+    ],
+    "links": {
+        "deed.detail": "https://webservices.picturae.pro/genealogy/deed/{deed.id}"
+    }
+}
