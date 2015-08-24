@@ -1,3 +1,5 @@
+![Build status](https://api.travis-ci.org/picturae/genealogy.svg?branch=master)
+
 # Picturae webkitchen genealogy client #
 
 ## Installation ##
