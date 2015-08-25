@@ -164,7 +164,7 @@ class Client implements ClientInterface
      */
     public function getDeeds($query = [])
     {
-        return $this->getList(self::TYPE_REGISTER, $query);
+        return $this->getList(self::TYPE_DEED, $query);
     }
     
     /**

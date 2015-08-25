@@ -79,7 +79,7 @@ $deed = $client->getPersons([
 
 ### Serverside fallback ###
 
-[Full example](examples/index.php)
+[Full example](examples/serverside-fallback)
 
 ```php
 // If you do not provide a url the current url is used
@@ -108,3 +108,10 @@ if ($url->isDeedDetail()) {
 }
 
 ```
+
+### Sitemap ###
+
+It's recommended to create a sitemap and submit it to google to improve crawling
+In the examples folder is a demo how you could implement this.
+
+[Full example](examples/sitemap)
