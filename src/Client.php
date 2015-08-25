@@ -5,7 +5,7 @@ namespace Picturae\Genealogy;
  * Picturae webkitchen client for genealogy
  * This client allows you to query the API servside
  */
-class Client
+class Client implements ClientInterface
 {
     /**
      * Path where the API is located
