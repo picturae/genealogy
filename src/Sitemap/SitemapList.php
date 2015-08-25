@@ -16,8 +16,8 @@ namespace Picturae\Genealogy\Sitemap;
  *      </sitemap>
  *  </sitemapindex>      
  */
-class SitemapList {
-    
+class SitemapList
+{
     /**
      * Amount of pages
      * @var int
@@ -50,6 +50,5 @@ class SitemapList {
     public function getXML()
     {
         $dom = new \DOMDocument('1.0', 'UTF-8');
-        
     }
 }

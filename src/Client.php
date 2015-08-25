@@ -7,7 +7,6 @@ namespace Picturae\Genealogy;
  */
 class Client implements ClientInterface
 {
-    
     /**
      * Used to fetch the register part of the API
      */
@@ -20,7 +19,7 @@ class Client implements ClientInterface
     
     /**
      * Used to fetch the person part of the API
-     */    
+     */
     const TYPE_PERSON = 'person';
     
     /**
@@ -105,7 +104,7 @@ class Client implements ClientInterface
     public function getPerson($uuid)
     {
         return $this->getDetail($uuid, self::TYPE_PERSON);
-    }    
+    }
 
     /**
      * Get register by uuid
@@ -116,7 +115,7 @@ class Client implements ClientInterface
     public function getRegister($uuid)
     {
         return $this->getDetail($uuid, self::TYPE_REGISTER);
-    }    
+    }
     
     /**
      * Get registers result set
@@ -141,7 +140,7 @@ class Client implements ClientInterface
     public function getRegisters($query = [])
     {
         return $this->getList(self::TYPE_REGISTER, $query);
-    }    
+    }
     
     /**
      * Get deeds result set
@@ -236,7 +235,7 @@ class Client implements ClientInterface
         $response = $this->getClient()->get($this->path . '/' . $type . '/', ['query' => $query]);
         $body = json_decode($response->getBody()->getContents());
         return $body;
-    }    
+    }
     
     /**
      * Get deed by uuid

@@ -1,8 +1,8 @@
 <?php
 namespace Picturae\Genealogy;
 
-interface ClientInterface {
-    
+interface ClientInterface
+{
     /**
      * Get deed by id
      * 

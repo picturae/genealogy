@@ -40,7 +40,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             new \GuzzleHttp\Message\Response(200, [], $body)
         ]);
         
-        $client = new \Picturae\Genealogy\Client($this->key);        
+        $client = new \Picturae\Genealogy\Client($this->key);
         $client->getClient()->getEmitter()->attach($mock);
         
         $deeds = $client->getDeeds();
