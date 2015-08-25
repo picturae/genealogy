@@ -24,14 +24,14 @@ class Client implements ClientInterface
     
     /**
      * Path where the API is located
-     * 
+     *
      * @var string
      */
     private $path = 'genealogy';
     
     /**
      * Client default options
-     * 
+     *
      * @var array
      */
     private $options = [
@@ -51,7 +51,7 @@ class Client implements ClientInterface
     
     /**
      * HTTP Client
-     * @var \GuzzleHttp\Client 
+     * @var \GuzzleHttp\Client
      */
     private $client;
     
@@ -63,7 +63,7 @@ class Client implements ClientInterface
      *  'base_url' => 'http://example.com'
      * ]);
      * </code>
-     * 
+     *
      * @param string $apiKey Your webkitchen API key
      * @param array $options Options override
      */
@@ -86,7 +86,7 @@ class Client implements ClientInterface
     
     /**
      * Get deed by uuid
-     * 
+     *
      * @param string $uuid
      * @return stdClass|null
      */
@@ -97,7 +97,7 @@ class Client implements ClientInterface
     
     /**
      * Get person by uuid
-     * 
+     *
      * @param string $uuid
      * @return stdClass|null
      */
@@ -108,7 +108,7 @@ class Client implements ClientInterface
 
     /**
      * Get register by uuid
-     * 
+     *
      * @param string $uuid
      * @return stdClass|null
      */
@@ -120,7 +120,7 @@ class Client implements ClientInterface
     /**
      * Get registers result set
      * all parameters are optional
-     * 
+     *
      * self:;getDeeds([
      *  'q' => 'something', // search query
      *  'rows' => 100,      // amount of rows to return
@@ -133,7 +133,7 @@ class Client implements ClientInterface
      *  ],
      *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
      * ]);
-     * 
+     *
      * @param array $query
      * @return \stdClass
      */
@@ -145,7 +145,7 @@ class Client implements ClientInterface
     /**
      * Get deeds result set
      * all parameters are optional
-     * 
+     *
      * self:;getDeeds([
      *  'q' => 'something', // search query
      *  'rows' => 100,      // amount of rows to return
@@ -158,7 +158,7 @@ class Client implements ClientInterface
      *  ],
      *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
      * ]);
-     * 
+     *
      * @param array $query
      * @return \stdClass
      */
@@ -170,7 +170,7 @@ class Client implements ClientInterface
     /**
      * Get persons result set
      * all parameters are optional
-     * 
+     *
      * self:;getDeeds([
      *  'q' => 'something', // search query
      *  'rows' => 100,      // amount of rows to return
@@ -183,7 +183,7 @@ class Client implements ClientInterface
      *  ],
      *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
      * ]);
-     * 
+     *
      * @param array $query
      * @return \stdClass
      */
@@ -212,7 +212,7 @@ class Client implements ClientInterface
     /**
      * Get result list
      * all parameters are optional
-     * 
+     *
      * self::getList[
      *  'q' => 'something', // search query
      *  'rows' => 100,      // amount of rows to return
@@ -225,7 +225,7 @@ class Client implements ClientInterface
      *  ],
      *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
      * ]);
-     * 
+     *
      * @param string $type
      * @param array $query
      * @return \stdClass
@@ -239,7 +239,7 @@ class Client implements ClientInterface
     
     /**
      * Get deed by uuid
-     * 
+     *
      * @param string $uuid
      * @param string $type a genealogy type
      * @return stdClass|null

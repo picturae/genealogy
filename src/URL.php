@@ -10,7 +10,7 @@ class URL
     private $url;
     
     /**
-     * 
+     *
      * @param string $url the url to work with leave empty for current url
      * @throws Exception\InvalidArgumentException
      * @throws Exception\RuntimeException
@@ -30,7 +30,7 @@ class URL
     
     /**
      * Get URL used by this object
-     * 
+     *
      * @return string
      */
     public function getURL()
@@ -60,7 +60,7 @@ class URL
     
     /**
      * Check if the url is a permalink for a deed
-     * 
+     *
      * @return boolean
      */
     public function isDeedDetail()
@@ -73,7 +73,7 @@ class URL
     
     /**
      * Get the deed uuid from the url only use this if isDeedDetail returns true
-     * 
+     *
      * @return string
      */
     public function getDeedUUID()
@@ -87,7 +87,7 @@ class URL
 
     /**
      * Get current scheme
-     * 
+     *
      * @return string
      */
     private function getCurrentScheme()

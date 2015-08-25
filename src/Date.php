@@ -13,7 +13,7 @@ class Date
     private $date;
     
     /**
-     * Format type 
+     * Format type
      */
     const FORMAT_DD_MM_YYYY = 'dd-mm-yyyy';
     
@@ -32,7 +32,7 @@ class Date
     
     /**
      * Format the date
-     * 
+     *
      * @param string $type
      * @param string $seperator
      * @return string

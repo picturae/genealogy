@@ -3,7 +3,10 @@ php:
   - 5.4
   - 5.5
   - 5.6
+  - 7.0
   - hhvm
-  - nightly
 install:
   - composer install --dev --prefer-dist
+script:
+  - phpcs --standard=psr2 ./src
+  - ./vendor/bin/phpmd src/ text 
