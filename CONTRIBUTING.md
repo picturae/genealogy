@@ -7,8 +7,19 @@ and uses [psr-2 code guidelines](https://github.com/php-fig/fig-standards/blob/m
 
 ```
 composer install --dev
+```
 
-phpunit
+Make sure there is no output in the following commands after changes
+
+```
+./vendor/bin/phpunit ./tests
 ./vendor/bin/phpcs --standard=psr2 ./src
 ./vendor/bin/phpmd ./src/ text ./vendor/phpmd/phpmd/src/main/resources/rulesets/cleancode.xml
+```
+
+There is also a check.sh script which runs all of the above commands
+
+```
+chmod 755 check.sh
+./check.sh
 ```
