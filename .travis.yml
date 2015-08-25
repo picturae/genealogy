@@ -8,5 +8,5 @@ php:
 install:
   - composer install --dev --prefer-dist
 script:
-  - phpcs --standard=psr2 ./src
-  - ./vendor/bin/phpmd src/ text 
+  - ./vendor/bin/phpcs --standard=psr2 ./src
+  - ./vendor/bin/phpmd ./src/ text ./vendor/phpmd/phpmd/src/main/resources/rulesets/cleancode.xml

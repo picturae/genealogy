@@ -8,7 +8,7 @@ class URL
      * @var string
      */
     private $url;
-    
+
     /**
      *
      * @param string $url the url to work with leave empty for current url
@@ -24,10 +24,10 @@ class URL
         if (filter_var($url, FILTER_VALIDATE_URL) === false) {
             throw new Exception\InvalidArgumentException('Invalid url given ' .$url);
         }
-                
+
         $this->url = $url;
     }
-    
+
     /**
      * Get URL used by this object
      *
@@ -37,7 +37,7 @@ class URL
     {
         return $this->url;
     }
-    
+
     /**
      * Get current url
      * @return string
@@ -49,15 +49,15 @@ class URL
             throw new Exception\RuntimeException('No url given and $_SERVER[\'HTTP_HOST\'] is undefined');
         }
         $url .= $_SERVER['HTTP_HOST'];
-        
+
         if (!isset($_SERVER['REQUEST_URI'])) {
             throw new Exception\RuntimeException('No url given and $_SERVER[\'REQUEST_URI\'] is undefined');
         }
-        
+
         $url .= $_SERVER['REQUEST_URI'];
         return $url;
     }
-    
+
     /**
      * Check if the url is a permalink for a deed
      *
@@ -65,12 +65,17 @@ class URL
      */
     public function isDeedDetail()
     {
-        if (preg_match('/deeds\/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/', $this->url) === 1) {
+        $match = preg_match(
+            '/deeds\/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/',
+            $this->url
+        );
+
+        if ($match === 1) {
             return true;
         }
         return false;
     }
-    
+
     /**
      * Get the deed uuid from the url only use this if isDeedDetail returns true
      *
@@ -79,7 +84,12 @@ class URL
     public function getDeedUUID()
     {
         $matches = [];
-        preg_match('/deeds\/(?P<uuid>[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})/', $this->url, $matches);
+        preg_match(
+            '/deeds\/(?P<uuid>[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})/',
+            $this->url,
+            $matches
+        );
+
         if (!empty($matches['uuid'])) {
             return $matches['uuid'];
         }
@@ -92,14 +102,15 @@ class URL
      */
     private function getCurrentScheme()
     {
+        $protocol = 'http://';
+
         if (isset($_SERVER['HTTPS']) &&
             ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
             isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
             $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
             $protocol = 'https://';
-        } else {
-            $protocol = 'http://';
         }
+
         return $protocol;
     }
 }

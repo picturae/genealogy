@@ -11,17 +11,17 @@ class Date
      * @var int
      */
     private $date;
-    
+
     /**
      * Format type
      */
     const FORMAT_DD_MM_YYYY = 'dd-mm-yyyy';
-    
+
     /**
      * Format type
      */
     const FORMAT_YYYY_MM_DD = 'yyyy-mm-dd';
-    
+
     /**
      * @param int $date Date returned by genealogy API as YYYYMMDD
      */
@@ -29,7 +29,7 @@ class Date
     {
         $this->date = $date;
     }
-    
+
     /**
      * Format the date
      *
@@ -41,10 +41,14 @@ class Date
     {
         switch ($type) {
             case self::FORMAT_DD_MM_YYYY:
-                return substr($this->date, 6, 2) . $seperator . substr($this->date, 4, 2) . $seperator . substr($this->date, 0, 4);
+                return substr($this->date, 6, 2) . $seperator
+                    . substr($this->date, 4, 2)
+                    . $seperator . substr($this->date, 0, 4);
                 break;
             case self::FORMAT_YYYY_MM_DD:
-                return substr($this->date, 0, 4) . $seperator . substr($this->date, 4, 2) . $seperator . substr($this->date, 6, 2);
+                return substr($this->date, 0, 4)
+                    . $seperator . substr($this->date, 4, 2)
+                    . $seperator . substr($this->date, 6, 2);
                 break;
             default:
                 throw new Exception\Date\InvalidArgumentException('Invalid format :' . $type);
