@@ -20,11 +20,66 @@ composer require picturae/genealogy
 
 ## Usage ##
 
+See below the code example for the client
+
 ```php
-new \Picturae\Genealogy\Client('api-key');
+$client = new \Picturae\Genealogy\Client('api-key');
+
+// Get a deed
+$deed = $client->getDeed($id);
+$person = $client->getPerson($id);
+$register = $client->getRegister($id);
+
+// Get a result list of deeds
+// all parameters are optional
+$deed = $client->getDeeds([
+    'q' => 'something', // search query
+    'rows' => 100,      // amount of rows to return
+    'page' => 1,        // page to return
+    'facetFields' => [  // facet's to return
+        'search_s_place'
+    ],
+    'fq' => [
+        'search_s_place: "Amsterdam"' // apply filter query
+    ],
+    'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+]);
+
+// Get a result list of registers
+// all parameters are optional
+$deed = $client->getRegisters([
+    'q' => 'something', // search query
+    'rows' => 100,      // amount of rows to return
+    'page' => 1,        // page to return
+    'facetFields' => [  // facet's to return
+        'search_s_place'
+    ],
+    'fq' => [
+        'search_s_place: "Amsterdam"' // apply filter query
+    ],
+    'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+]);
+
+// Get a result list of persons
+// all parameters are optional
+$deed = $client->getPersons([
+    'q' => 'something', // search query
+    'rows' => 100,      // amount of rows to return
+    'page' => 1,        // page to return
+    'facetFields' => [  // facet's to return
+        'search_s_place'
+    ],
+    'fq' => [
+        'search_s_place: "Amsterdam"' // apply filter query
+    ],
+    'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+]);
+
 ```
 
 ### Serverside fallback ###
+
+[Full example](examples/index.php)
 
 ```php
 // If you do not provide a url the current url is used
