@@ -18,17 +18,32 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     
     public function testGetDeed()
     {
-        $json = file_get_contents(__DIR__ . '/deed.json');
+        $json = file_get_contents(__DIR__ . '/result/deed.json');
         $body = \GuzzleHttp\Stream\Stream::factory($json);
-        $mock = new \GuzzleHttp\Ring\Client\MockHandler([
+        $mock = new \GuzzleHttp\Subscriber\Mock([
             new \GuzzleHttp\Message\Response(200, [], $body)
         ]);
         
         $client = new \Picturae\Genealogy\Client($this->key);
-        $client->getClient()->getEmitter($mock);
+        $client->getClient()->getEmitter()->attach($mock);
         
-        $id = '0000b26c-76e8-0b20-9ebf-b9bb1776eae5';
+        $id = '01792869-7556-f1ad-ef04-aacb0be11b49';
         $deed = $client->getDeed($id);
         $this->assertEquals($deed->id, $id);
+    }
+    
+    public function testGetDeeds()
+    {
+        $json = file_get_contents(__DIR__ . '/result/deed-list.json');
+        $body = \GuzzleHttp\Stream\Stream::factory($json);
+        $mock = new \GuzzleHttp\Subscriber\Mock([
+            new \GuzzleHttp\Message\Response(200, [], $body)
+        ]);
+        
+        $client = new \Picturae\Genealogy\Client($this->key);        
+        $client->getClient()->getEmitter()->attach($mock);
+        
+        $deeds = $client->getDeeds();
+        $this->assertEquals(count($deeds->deed), 1);
     }
 }

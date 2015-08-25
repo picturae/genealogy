@@ -7,6 +7,22 @@ namespace Picturae\Genealogy;
  */
 class Client implements ClientInterface
 {
+    
+    /**
+     * Used to fetch the register part of the API
+     */
+    const TYPE_REGISTER = 'register';
+    
+    /**
+     * Used to fetch the deed part of the API
+     */
+    const TYPE_DEED = 'deed';
+    
+    /**
+     * Used to fetch the person part of the API
+     */    
+    const TYPE_PERSON = 'person';
+    
     /**
      * Path where the API is located
      * 
@@ -41,7 +57,13 @@ class Client implements ClientInterface
     private $client;
     
     /**
-     * Instantiate genealogy client
+     * Instantiate genealogy client.
+     * To override the api url for testing purpose you can use the options parameter for the override
+     * <code>
+     * new Client('some-key', [
+     *  'base_url' => 'http://example.com'
+     * ]);
+     * </code>
      * 
      * @param string $apiKey Your webkitchen API key
      * @param array $options Options override
@@ -71,12 +93,104 @@ class Client implements ClientInterface
      */
     public function getDeed($uuid)
     {
-        $response = $this->getClient()->get($this->path . '/deed/' . $uuid);
-        $body = json_decode($response->getBody()->getContents());
-        
-        if (isset($body->deed[0])) {
-            return $body->deed[0];
-        }
+        return $this->getDetail($uuid, self::TYPE_DEED);
+    }
+    
+    /**
+     * Get person by uuid
+     * 
+     * @param string $uuid
+     * @return stdClass|null
+     */
+    public function getPerson($uuid)
+    {
+        return $this->getDetail($uuid, self::TYPE_PERSON);
+    }    
+
+    /**
+     * Get register by uuid
+     * 
+     * @param string $uuid
+     * @return stdClass|null
+     */
+    public function getRegister($uuid)
+    {
+        return $this->getDetail($uuid, self::TYPE_REGISTER);
+    }    
+    
+    /**
+     * Get registers result set
+     * all parameters are optional
+     * 
+     * self:;getDeeds([
+     *  'q' => 'something', // search query
+     *  'rows' => 100,      // amount of rows to return
+     *  'page' => 1,        // page to return
+     *  'facetFields' => [  // facet's to return
+     *    'search_s_place'
+     *  ],
+     *  'fq' => [
+     *    'search_s_place: "Amsterdam"' // apply filter query
+     *  ],
+     *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+     * ]);
+     * 
+     * @param array $query
+     * @return \stdClass
+     */
+    public function getRegisters($query = [])
+    {
+        return $this->getList(self::TYPE_REGISTER, $query);
+    }    
+    
+    /**
+     * Get deeds result set
+     * all parameters are optional
+     * 
+     * self:;getDeeds([
+     *  'q' => 'something', // search query
+     *  'rows' => 100,      // amount of rows to return
+     *  'page' => 1,        // page to return
+     *  'facetFields' => [  // facet's to return
+     *    'search_s_place'
+     *  ],
+     *  'fq' => [
+     *    'search_s_place: "Amsterdam"' // apply filter query
+     *  ],
+     *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+     * ]);
+     * 
+     * @param array $query
+     * @return \stdClass
+     */
+    public function getDeeds($query = [])
+    {
+        return $this->getList(self::TYPE_REGISTER, $query);
+    }
+    
+    /**
+     * Get persons result set
+     * all parameters are optional
+     * 
+     * self:;getDeeds([
+     *  'q' => 'something', // search query
+     *  'rows' => 100,      // amount of rows to return
+     *  'page' => 1,        // page to return
+     *  'facetFields' => [  // facet's to return
+     *    'search_s_place'
+     *  ],
+     *  'fq' => [
+     *    'search_s_place: "Amsterdam"' // apply filter query
+     *  ],
+     *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+     * ]);
+     * 
+     * @param array $query
+     * @return \stdClass
+     */
+    public function getPersons($query = [])
+    {
+        return $this->getList(self::TYPE_PERSON, $query);
     }
 
     /**
@@ -94,5 +208,50 @@ class Client implements ClientInterface
         $this->client = new \GuzzleHttp\Client($config);
         
         return $this->client;
+    }
+    
+    /**
+     * Get result list
+     * all parameters are optional
+     * 
+     * self::getList[
+     *  'q' => 'something', // search query
+     *  'rows' => 100,      // amount of rows to return
+     *  'page' => 1,        // page to return
+     *  'facetFields' => [  // facet's to return
+     *    'search_s_place'
+     *  ],
+     *  'fq' => [
+     *    'search_s_place: "Amsterdam"' // apply filter query
+     *  ],
+     *  'sort' => 'search_s_place asc'   // sort result set (default by relevance)
+     * ]);
+     * 
+     * @param string $type
+     * @param array $query
+     * @return \stdClass
+     */
+    public function getList($type, $query = [])
+    {
+        $response = $this->getClient()->get($this->path . '/' . $type . '/', ['query' => $query]);
+        $body = json_decode($response->getBody()->getContents());
+        return $body;
+    }    
+    
+    /**
+     * Get deed by uuid
+     * 
+     * @param string $uuid
+     * @param string $type a genealogy type
+     * @return stdClass|null
+     */
+    private function getDetail($uuid, $type)
+    {
+        $response = $this->getClient()->get($this->path . '/' . $type . '/' . $uuid);
+        $body = json_decode($response->getBody()->getContents());
+        
+        if (isset($body->{$type}[0])) {
+            return $body->{$type}[0];
+        }
     }
 }

@@ -1,0 +1,36 @@
+{
+    "deed": [
+        {
+            "asset": [],
+            "entity_type": "br_a",
+            "entity_uuid": "c50ae762-cb02-11df-a84c-426945576265",
+            "id": "ca85b643-5993-2d2a-b1c4-c42bf7cee75b",
+            "metadata": {
+                "datum": null,
+                "diversen": null,
+                "has_assets": "register",
+                "modified_time": "2012-11-08 13:13:40.168545",
+                "nummer": null,
+                "pagina": "58B",
+                "plaats": null,
+                "subtype": null,
+                "type_title": "bevolkingsregister inschrijving"
+            },
+            "register_id": "4d4b2276-0e84-11e0-bd00-21973653728c",
+            "tenant": "szu",
+            "timestamp": "2015-02-13T09:22:11.359Z",
+            "title": ""
+        }
+    ],
+    "links": {
+        "deed.detail": "http://webservices.picturae.pro/genealogy/deed/{deed.id}"
+    },
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pages": 637230,
+            "rows": 1,
+            "total": 637230
+        }
+    }
+}

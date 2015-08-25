@@ -1,0 +1,41 @@
+{
+    "links": {
+        "person.detail": "https://webservices.picturae.pro/genealogy/person/{person.id}"
+    },
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pages": 1,
+            "rows": 100,
+            "total": 1
+        }
+    },
+    "person": [
+        {
+            "deed_id": "ca85b643-5993-2d2a-b1c4-c42bf7cee75b",
+            "entity_type": "br_a_geregistreerde",
+            "entity_uuid": "c50cf30e-cb02-11df-a84c-426945576265",
+            "id": "d7230b02-7e4c-bcd8-7a2b-b17f2fa267ac",
+            "metadata": {
+                "achternaam": "Hoogeveen",
+                "datum": 18590718,
+                "datum_geboorte": 18590718,
+                "deed_type_title": "bevolkingsregister inschrijving",
+                "geslacht": "onbekend",
+                "geslachtsnaam": "Hoogeveen",
+                "has_assets": "register",
+                "modified_time": "2012-11-08 13:13:40.168545",
+                "ordering": 1,
+                "plaats": "Brummen",
+                "register_gemeente": "Brummen",
+                "register_naam": "Bevolkingsregister, Oeken (wijk E) en Voorstonden (wijk F)",
+                "register_type_title": "bevolkingsregister",
+                "type_title": "bevolkingsregister geregistreerde",
+                "voornaam": "Johanna Cornelia"
+            },
+            "register_id": "4d4b2276-0e84-11e0-bd00-21973653728c",
+            "timestamp": "2015-06-24T10:15:18.05Z",
+            "title": ""
+        }
+    ]
+}
