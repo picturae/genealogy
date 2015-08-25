@@ -1,3 +1,4 @@
 composer.lock
 /vendor/
 /nbproject/
+/examples/sitemap/vendor/

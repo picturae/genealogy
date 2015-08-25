@@ -46,7 +46,7 @@ class URL
     {
         $url = $this->getCurrentScheme();
         if (!isset($_SERVER['HTTP_HOST'])) {
-            throw new Exception\RunTimeException('No url given and $_SERVER[\'HTTP_HOST\'] is undefined');
+            throw new Exception\RuntimeException('No url given and $_SERVER[\'HTTP_HOST\'] is undefined');
         }
         $url .= $_SERVER['HTTP_HOST'];
         
