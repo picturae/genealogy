@@ -1,4 +1,5 @@
-![Build status](https://api.travis-ci.org/picturae/genealogy.svg?branch=master)
+[![Build Status](https://secure.travis-ci.org/picturae/genealogy.svg?branch=master)](https://secure.travis-ci.org/picturae/genealogy)
+[![Coverage Status](https://coveralls.io/repos/picturae/genealogy/badge.svg?branch=master)](https://coveralls.io/r/picturae/genealogy?branch=master)
 
 # Picturae webkitchen genealogy client #
 
