@@ -5,7 +5,7 @@ use Picturae\Genealogy\Date;
 use Picturae\Genealogy\URL;
 
 // Make sure you run composer install first
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 // Change to your API key
 $apiKey = '509544d0-1c67-11e4-9016-c788dee409dc';
