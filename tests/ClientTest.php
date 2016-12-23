@@ -34,7 +34,6 @@ class ClientTest extends \PHPUnit\Framework\TestCase
 
     public function testGetDeeds()
     {
-        //$json = file_get_contents(__DIR__ . '/result/deed-list.json');
         $response = new \GuzzleHttp\Psr7\Response('200', [], __DIR__ . '/result/deed-list.json');
         $handler = new \GuzzleHttp\Handler\MockHandler([
             $response
