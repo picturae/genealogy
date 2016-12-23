@@ -11,50 +11,48 @@ class Client implements ClientInterface
      * Used to fetch the register part of the API
      */
     const TYPE_REGISTER = 'register';
-    
+
     /**
      * Used to fetch the deed part of the API
      */
     const TYPE_DEED = 'deed';
-    
+
     /**
      * Used to fetch the person part of the API
      */
     const TYPE_PERSON = 'person';
-    
+
     /**
      * Path where the API is located
      *
      * @var string
      */
     private $path = 'genealogy';
-    
+
     /**
      * Client default options
      *
      * @var array
      */
     private $options = [
-        'base_url' => 'https://webservices.picturae.com',
-        'defaults' => [
-            'headers' => [
-                'apiKey' => '{apiKey}'
-            ]
+        'base_uri' => 'https://webservices.picturae.com',
+        'headers' => [
+            'apiKey' => '{apiKey}'
         ]
     ];
-    
+
     /**
      * Genealogy API key
      * @var string
      */
     private $apiKey;
-    
+
     /**
      * HTTP Client
      * @var \GuzzleHttp\Client
      */
     private $client;
-    
+
     /**
      * Instantiate genealogy client.
      * To override the api url for testing purpose you can use the options parameter for the override
@@ -74,7 +72,7 @@ class Client implements ClientInterface
             $this->options = array_merge($this->options, $options);
         }
     }
-    
+
     /**
      * Get API key
      * @return string
@@ -83,7 +81,7 @@ class Client implements ClientInterface
     {
         return $this->apiKey;
     }
-    
+
     /**
      * Get deed by uuid
      *
@@ -94,7 +92,7 @@ class Client implements ClientInterface
     {
         return $this->getDetail($uuid, self::TYPE_DEED);
     }
-    
+
     /**
      * Get person by uuid
      *
@@ -116,7 +114,7 @@ class Client implements ClientInterface
     {
         return $this->getDetail($uuid, self::TYPE_REGISTER);
     }
-    
+
     /**
      * Get registers result set
      * all parameters are optional
@@ -141,7 +139,7 @@ class Client implements ClientInterface
     {
         return $this->getList(self::TYPE_REGISTER, $query);
     }
-    
+
     /**
      * Get deeds result set
      * all parameters are optional
@@ -166,7 +164,7 @@ class Client implements ClientInterface
     {
         return $this->getList(self::TYPE_DEED, $query);
     }
-    
+
     /**
      * Get persons result set
      * all parameters are optional
@@ -201,14 +199,14 @@ class Client implements ClientInterface
         if ($this->client) {
             return $this->client;
         }
-        
+
         $config = $this->options;
-        $config['defaults']['headers']['apiKey'] = $this->apiKey;
+        $config['headers']['apiKey'] = $this->apiKey;
         $this->client = new \GuzzleHttp\Client($config);
-        
+
         return $this->client;
     }
-    
+
     /**
      * Get result list
      * all parameters are optional
@@ -236,7 +234,7 @@ class Client implements ClientInterface
         $body = json_decode($response->getBody()->getContents());
         return $body;
     }
-    
+
     /**
      * Get deed by uuid
      *
@@ -248,7 +246,7 @@ class Client implements ClientInterface
     {
         $response = $this->getClient()->get($this->path . '/' . $type . '/' . $uuid);
         $body = json_decode($response->getBody()->getContents());
-        
+
         if (isset($body->{$type}[0])) {
             return $body->{$type}[0];
         }
